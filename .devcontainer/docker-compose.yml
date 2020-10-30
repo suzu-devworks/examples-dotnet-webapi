@@ -15,7 +15,5 @@ services:
         #"USER_GID": "1000"
     tty: true
     volumes: 
-      #- $HOME/.gitconfig:/home/vscode/.gitconfig
-      #- $HOME/.ssh:/home/vscode/.ssh
-      - ..:/workspace
-    working_dir: /workspace
+      - ..:/workspaces/examples-dotcore-webapi
+    working_dir: /workspaces/examples-dotcore-webapi

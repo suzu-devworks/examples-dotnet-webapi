@@ -2,7 +2,7 @@
 	"name": "C# (.NET Core)",
 	"dockerComposeFile": "docker-compose.yml",
 	"service" : "dev",
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/workspaces/examples-dotcore-webapi",
 	
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
@@ -12,7 +12,8 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-dotnettools.csharp",
-		"dominicvonk.vscode-resx-editor"
+		"dominicvonk.vscode-resx-editor",
+		"visualstudioexptteam.vscodeintellicode"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace ExamplesWebapi
 {
@@ -26,6 +20,14 @@ namespace ExamplesWebapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // ----- Localization set Resource folder.
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
+            // -----.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +37,15 @@ namespace ExamplesWebapi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // ----- Localization set request time cultures.
+            var supportedCultures = new[] { "ja", "fr", "en-US" };
+            app.UseRequestLocalization(new RequestLocalizationOptions()
+                .SetDefaultCulture(supportedCultures[0])
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures)
+            );
+            // -----.
 
             app.UseHttpsRedirection();
 
