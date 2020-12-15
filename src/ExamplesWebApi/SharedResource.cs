@@ -1,6 +1,6 @@
 // Dummy class to group shared resources
 
-namespace ExamplesWebapi
+namespace ExamplesWebApi
 {
     public class SharedResource
     {

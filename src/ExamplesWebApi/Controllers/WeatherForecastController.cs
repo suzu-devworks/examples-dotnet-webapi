@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ExamplesWebapi.Controllers
+namespace ExamplesWebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -26,6 +26,9 @@ namespace ExamplesWebapi.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogDebug(20, "Doing hard work! {Action}", nameof(Get));
+            _logger.LogInformation("Called.");
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

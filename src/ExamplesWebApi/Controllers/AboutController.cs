@@ -2,7 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 
-namespace ExamplesWebapi.Controllers
+namespace ExamplesWebApi.Controllers
 {
 
     [Route("api/[controller]")]
