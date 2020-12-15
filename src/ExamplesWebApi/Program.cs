@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 
-namespace ExamplesWebapi
+namespace ExamplesWebApi
 {
     public class Program
     {
@@ -21,6 +22,15 @@ namespace ExamplesWebapi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                // ----- Add NLog
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                    logging.AddNLog();
+                })
+                // -----.
+                ;
     }
 }

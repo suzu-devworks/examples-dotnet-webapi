@@ -11,9 +11,12 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
+		"ms-ceintl.vscode-language-pack-ja",
 		"ms-dotnettools.csharp",
+		"editorconfig.editorconfig",
+		"gaoshan0621.csharp-format-usings",
 		"dominicvonk.vscode-resx-editor",
-		"visualstudioexptteam.vscodeintellicode"
+		"k--kato.docomment"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
